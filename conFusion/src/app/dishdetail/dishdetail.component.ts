@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DatePipe } from '@angular/common';
 
 const DISH = {
   id: '0',
@@ -54,17 +53,14 @@ export class DishdetailComponent implements OnInit {
 
   dish = DISH;
 
-
-
-
-  constructor(private datePipe: DatePipe) { }
+  constructor() { }
 
   ngOnInit() {
 
-    let thecomment = this.dish['comments'];
-    for (let i = 0, len = thecomment.length; i < len; i++){
-      console.log(thecomment [i]);
-    }
+    // let thecomment = this.dish['comments'];
+    // for (let i = 0, len = thecomment.length; i < len; i++){
+    //   console.log(thecomment [i]);
+    // }
   
   }
 }
