@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
 import { DatePipe } from '@angular/common';
+import { DishService } from './services/dish.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { DatePipe } from '@angular/common';
     MatCardModule,
     MatButtonModule,
   ],
-  providers: [DatePipe],
+  providers: [DishService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
