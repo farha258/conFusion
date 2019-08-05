@@ -24,7 +24,8 @@ import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 import { LoginComponent } from './login/login.component';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule, MatFormFieldModule, MatCheckboxModule, MatInputModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -50,7 +51,12 @@ import { MatDialogModule } from '@angular/material';
     MatCardModule,
     MatButtonModule,
     AppRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FlexLayoutModule,
+    MatCheckboxModule,
+    FormsModule
   ],
   providers: [
     PromotionService, 
