@@ -11,13 +11,14 @@ import { Leader } from '../shared/leader';
 })
 export class AboutComponent implements OnInit {
 
-  leader: Leader [];
+  leaders: Leader[];
 
   constructor( private leaderService: LeaderService) { }
 
   ngOnInit() {
-    this.leader = this.leaderService.getLeaders();
-    console.log(this.leader);
+    this.leaderService.getLeaders()
+      .then(leaders => this.leaders = leaders);
+    console.log(this.leaders);
   }
 
 }
