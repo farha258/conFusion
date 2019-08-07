@@ -24,7 +24,7 @@ import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 import { LoginComponent } from './login/login.component';
-import { MatDialogModule, MatFormFieldModule, MatCheckboxModule, MatInputModule, MatSelectModule, MatSlideToggleModule } from '@angular/material';
+import { MatDialogModule, MatFormFieldModule, MatCheckboxModule, MatInputModule, MatSelectModule, MatSlideToggleModule, MatProgressSpinnerModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -59,7 +59,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule, 
     ReactiveFormsModule, 
     MatSelectModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     PromotionService, 
