@@ -33,7 +33,6 @@ fxLayoutGap.xs="0">
 </div>
 
 <div fxFlex="40">
-<div fxFlex>
   <h3>Comments</h3>
   <mat-list>
     <mat-list-item *ngFor="let comment of dish.comments">
@@ -42,8 +41,38 @@ fxLayoutGap.xs="0">
       <p matLine>-- {{comment.author}} {{comment.date | date}}</p>
     </mat-list-item>
   </mat-list>
+
+  <mat-list>
+      <span [hidden]="commentForm.invalid">
+    <mat-list-item>
+      <p matLine>{{commentForm.value.comment}}</p>
+      <p matLine>{{commentForm.value.rating}} Stars</p>
+      <p matLine>--{{commentForm.value.author}}</p>
+    </mat-list-item>
+    </span>
+  </mat-list>
+
+  <form novalidate [formGroup]="commentForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+    <p>
+      <mat-form-field class="full-width">
+        <input matInput formControlName="author" placeholder="Name" type="text" required>
+        <mat-error *ngIf="formErrors.author">{{formErrors.author}}</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-slider formControlName="rating" thumbLabel tickInterval="1" step="1" min="1" max="5" step="1"></mat-slider>
+    </p>
+    <p>
+      <mat-form-field class="full-width">
+        <textarea matInput formControlName="comment" placeholder="Your Comment" rows=12 required></textarea>
+        <mat-error *ngIf="formErrors.comment">{{formErrors.comment}}</mat-error>
+      </mat-form-field>
+    </p>
+    <button type="submit" mat-button class="background-primary text-floral-white"
+        [disabled]="commentForm.invalid">Submit</button>
+  </form>
 </div>
-</div>
+
 
 <div fxfles [hidden]="dish">
   <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
