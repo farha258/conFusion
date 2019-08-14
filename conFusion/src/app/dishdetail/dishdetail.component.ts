@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Dish } from '../shared/dish';
@@ -7,6 +7,7 @@ import { FnParam } from '@angular/compiler/src/output/output_ast';
 import { switchMap } from 'rxjs/operators';
 import { Comment} from '../shared/comment';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { inject } from '@angular/core/testing';
 
 @Component({
   selector: 'app-dishdetail',
@@ -27,11 +28,12 @@ export class DishdetailComponent implements OnInit {
   constructor( private dishService: DishService,
     private route: ActivatedRoute,
     private location: Location,
-    private fb: FormBuilder) { 
-      this.createForm();
-    }
+    private fb: FormBuilder,
+    @Inject('BaseURL') private BaseURL) { }
 
   ngOnInit() {
+    this.createForm();
+
     this.dishService.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
     this.route.params.pipe(switchMap((params: Params) => this.dishService.getDish(params['id'])))
     .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id); });
