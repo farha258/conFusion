@@ -32,7 +32,7 @@ fxLayoutGap.xs="0">
 </div>
 </div>
 
-<div fxFlex="40">
+<div fxFlex="40" *ngIf="dish">
   <h3>Comments</h3>
   <mat-list>
     <mat-list-item *ngFor="let comment of dish.comments">
@@ -74,8 +74,12 @@ fxLayoutGap.xs="0">
 </div>
 
 
-<div fxfles [hidden]="dish">
+<div fxfles [hidden]="dish || errMess">
   <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+</div>
+<div flFlex *ngIf="errMess">
+  <h2>Error</h2>
+  <h4>{{errMess}}</h4>
 </div>
 
 </div>

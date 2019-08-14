@@ -19,11 +19,17 @@ export class DishdetailComponent implements OnInit {
 
   dish: Dish;
   dishIds: string[];
+  errMess: string;
   prev: string;
   next: string;
   commentForm: FormGroup;
   comment: Comment;
-  @ViewChild('fform', {static:false,}) feedbackFormDirective;
+  @ViewChild('cform', {static:false,}) commentFormDirective;
+
+  formErrors = {
+    'author': '',
+    'comment': ''
+  };
 
   constructor( private dishService: DishService,
     private route: ActivatedRoute,
@@ -36,13 +42,11 @@ export class DishdetailComponent implements OnInit {
 
     this.dishService.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
     this.route.params.pipe(switchMap((params: Params) => this.dishService.getDish(params['id'])))
-    .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id); });
+    .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id); },
+      errmess => this.errMess = <any> errmess);
   }
 
-  formErrors = {
-    'author': '',
-    'comment': ''
-  };
+
 
   validationMessages = {
     'author': {
@@ -106,7 +110,7 @@ export class DishdetailComponent implements OnInit {
       date: ''
     });
     this.dish.comments.push(this.comment);
-    this.feedbackFormDirective.resetForm();
+    this.commentFormDirective.resetForm();
   }
   
 }
