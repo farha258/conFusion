@@ -224,5 +224,26 @@
       "description": "Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. He says, Put together the cuisines from the two craziest cultures, and you get a winning hit! Amma Mia!"
     }
   ],
-  "feedback": []
+  "feedback": [
+    {
+      "firstname": "MOHD HAFEEZ MUTTAQIIN",
+      "lastname": "JAMIL",
+      "telnum": "0133355597",
+      "email": "gabangadget@gmail.com",
+      "agree": false,
+      "contacttype": "None",
+      "message": "Testing ",
+      "id": 1
+    },
+    {
+      "firstname": "FARHA",
+      "lastname": "MASKURIY",
+      "telnum": "0133355598",
+      "email": "ibucergas@gmail.com",
+      "agree": true,
+      "contacttype": null,
+      "message": "i love the menu. will come again. ",
+      "id": 2
+    }
+  ]
 }
